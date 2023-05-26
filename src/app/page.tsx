@@ -1,5 +1,5 @@
 async function getPost() {
-  const res = await fetch(`${process.env.BASE_URL}/api/getPost`);
+  const res = await fetch(`${process.env.BASE_URL}/api/getPosts`);
   if (!res.ok) {
     console.log(res);
   }
@@ -8,7 +8,7 @@ async function getPost() {
 }
 
 export default async function Home() {
-  const data = await getPost();
+  const data: { id: number; title: string }[] = await getPost();
 
   console.log(data);
 
